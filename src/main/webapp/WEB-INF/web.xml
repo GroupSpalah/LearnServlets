@@ -14,4 +14,14 @@
         <url-pattern>/say-hello</url-pattern> <!--say-hello-->
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Params</servlet-name>
+        <servlet-class>org.example.ParamsServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Params</servlet-name>
+        <url-pattern>/params</url-pattern>
+    </servlet-mapping>
+
 </web-app>

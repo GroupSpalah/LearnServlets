@@ -1,6 +1,5 @@
-package org.example.homeworks.misha.hw_15_05_2024;
+package org.homeworks.misha.hw_15_05_2024;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>Hello</servlet-name>
-        <servlet-class>org.example.HelloServlet</servlet-class>
+        <servlet-class>org.example.controllers.HelloServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -16,7 +16,7 @@
 
     <servlet>
         <servlet-name>Params</servlet-name>
-        <servlet-class>org.example.ParamsServlet</servlet-class>
+        <servlet-class>org.example.controllers.ParamsServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -26,7 +26,7 @@
 
     <servlet>
         <servlet-name>MyServlet</servlet-name>
-        <servlet-class>org.example.homeworks.misha.hw_15_05_2024.MyServlet</servlet-class>
+        <servlet-class>org.homeworks.misha.hw_15_05_2024.MyServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -36,7 +36,7 @@
 
     <servlet>
         <servlet-name>Calculate</servlet-name>
-        <servlet-class>org.example.homeworks.misha.hw_25_05_2024.Calculate</servlet-class>
+        <servlet-class>org.homeworks.misha.hw_25_05_2024.Calculate</servlet-class>
     </servlet>
 
     <servlet-mapping>

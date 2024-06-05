@@ -9,6 +9,7 @@ import lombok.*;
 @Getter
 @ToString
 public class Person {
+    int id;
     String name;
     int age;
 }

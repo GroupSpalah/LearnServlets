@@ -24,4 +24,26 @@
         <url-pattern>/params</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>MyServlet</servlet-name>
+        <servlet-class>org.example.homeworks.misha.hw_15_05_2024.MyServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MyServlet</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Calculate</servlet-name>
+        <servlet-class>org.example.homeworks.misha.hw_25_05_2024.Calculate</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Calculate</servlet-name>
+        <url-pattern>/calculate</url-pattern>
+    </servlet-mapping>
+
+
+
 </web-app>

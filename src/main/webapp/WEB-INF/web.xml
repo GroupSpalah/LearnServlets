@@ -23,5 +23,13 @@
         <servlet-name>Params</servlet-name>
         <url-pattern>/params</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>Phrase</servlet-name>
+        <servlet-class>org.example.anton.hw_15_05_24.PhraseServlet</servlet-class>
+    </servlet>
 
+    <servlet-mapping>
+        <servlet-name>Phrase</servlet-name>
+        <url-pattern>/say-phrase</url-pattern>
+    </servlet-mapping>
 </web-app>

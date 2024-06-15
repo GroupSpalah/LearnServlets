@@ -1,6 +1,7 @@
-package org.homeworks.anton.hw_15_05_24;
+package org.homeworks.anton.hw_15_05;
 
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,5 +17,11 @@ public class PhraseServlet extends HttpServlet {
                 "Good programmers write code that humans can"
                 +
                 "understand.");
+    }
+
+    @Override
+    protected  void  doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        PrintWriter writer = resp.getWriter();
+        writer.println("Good programmers write code that humans can");
     }
 }

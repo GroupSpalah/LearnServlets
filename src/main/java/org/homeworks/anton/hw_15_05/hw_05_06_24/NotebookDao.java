@@ -3,9 +3,11 @@ package org.homeworks.anton.hw_15_05.hw_05_06_24;
 
 import jakarta.persistence.*;
 
+import static jakarta.persistence.Persistence.createEntityManagerFactory;
+
 public class NotebookDao  {
     public static final EntityManagerFactory FACTORY =
-            Persistence.createEntityManagerFactory("anton");
+            createEntityManagerFactory("antonio");
 
 
     public void ad(Notebook notebook)  {

@@ -25,6 +25,26 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>CalculA</servlet-name>
+        <servlet-class>org.homeworks.anton.hw_15_05.hw_22_05.CalculatorA</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CalculA</servlet-name>
+        <url-pattern>/calcul</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Phrase</servlet-name>
+        <servlet-class>org.homeworks.anton.hw_15_05.PhraseServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Phrase</servlet-name>
+        <url-pattern>/say-phrase</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>MyServlet</servlet-name>
         <servlet-class>org.homeworks.misha.hw_15_05_2024.MyServlet</servlet-class>
     </servlet>

@@ -20,14 +20,12 @@ public class CalcJson extends HttpServlet {
 
         BufferedReader reader = req.getReader();
         Calculator calculator = MAPPER.readValue(reader, Calculator.class);
-     double   result = calculate(calculator.getValueOne(),calculator.getValueTwo(),calculator.getOperation());
+        double result = calculate(calculator.getValueOne(), calculator.getValueTwo(), calculator.getOperation());
         System.out.println(result);
     }
 
-
-
     private double calculate(double valueOne, double valueTwo, String operation) {
-        return  switch (operation) {
+        return switch (operation) {
             case "+" -> valueOne + valueTwo;
             case "-" -> valueOne - valueTwo;
             case "*" -> valueOne * valueTwo;

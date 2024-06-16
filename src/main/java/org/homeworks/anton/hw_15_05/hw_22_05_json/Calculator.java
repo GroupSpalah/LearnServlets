@@ -9,7 +9,7 @@ import lombok.*;
 @Getter
 @ToString
 public class Calculator {
-   double valueOne;
-     double valueTwo;
+    double valueOne;
+    double valueTwo;
     String operation;
 }

@@ -1,14 +1,11 @@
 package org.homeworks.anton.hw_15_05.hw_05_06_24;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
 
+import jakarta.persistence.*;
 
 public class NotebookDao  {
     public static final EntityManagerFactory FACTORY =
-            Persistence.createEntityManagerFactory("antonio");
+            Persistence.createEntityManagerFactory("anton");
 
 
     public void ad(Notebook notebook)  {

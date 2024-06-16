@@ -13,7 +13,7 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/notebook")
 public class NotebookServlet extends HttpServlet {
     private static final ObjectMapper MAPPER = new ObjectMapper();
-   private static final NotebookDao NOTEBOOK_DAO = new NotebookDao();;
+    public static final NotebookDao NOTEBOOK_DAO = new NotebookDao();;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {

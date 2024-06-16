@@ -1,6 +1,10 @@
 package org.example.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
 import org.example.domain.Person;
 
 import javax.servlet.ServletException;
@@ -14,6 +18,8 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/json")
 public class JsonServlet extends HttpServlet {
 
+    public static final EntityManagerFactory FACTORY =
+            Persistence.createEntityManagerFactory("antonio");
 
     public static final ObjectMapper MAPPER = new ObjectMapper();
 
@@ -48,7 +54,8 @@ public class JsonServlet extends HttpServlet {
 
         Person person = MAPPER.readValue(reader, Person.class);//jackson
 
-        System.out.println(person);
+//        System.out.println(person);
+
     }
 
     @Override
@@ -74,6 +81,7 @@ public class JsonServlet extends HttpServlet {
         resp.getWriter().println(json);
 
     }
+
 }
 
 /**

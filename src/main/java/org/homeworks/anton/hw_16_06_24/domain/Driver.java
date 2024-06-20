@@ -20,9 +20,14 @@ public class Driver {
     int id;
 
     String name;
+
     String lastName;
+
     int age;
+
+    @Enumerated(EnumType.STRING)
     Qualification qualification;
+
     @OneToMany(cascade = CascadeType.PERSIST)
     List<Truck> trucks;
 }

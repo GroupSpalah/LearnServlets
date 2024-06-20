@@ -21,7 +21,7 @@ public class TruckDaoImpl implements TruckDao {
     public List<Truck> showByDriver(String name) throws SQLException {
         EntityManager em = FACTORY.createEntityManager();
         List<Truck> trucks = em.createQuery(
-                        "SELECT t FROM Truck t JOIN Driver  d WHERE d.name LIKE :name",
+                        "FROM Truck t JOIN Driver  d WHERE d.name LIKE :name",
                         Truck.class)
                 .setParameter("name", "%" + name + "%")
                 .getResultList();

@@ -19,7 +19,6 @@ public class NotebookServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         BufferedReader reader = req.getReader();
         Notebook notebook = MAPPER.readValue(reader, Notebook.class);
-
         NOTEBOOK_DAO.ad(notebook);
         resp.getWriter().write(MAPPER.writeValueAsString(notebook));
     }
@@ -28,7 +27,7 @@ public class NotebookServlet extends HttpServlet {
     protected  void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String sId = req.getParameter("id");
         int id = Integer.parseInt(sId);
-      Notebook notebook =   NOTEBOOK_DAO.findById(id);
-        resp.getWriter().write(MAPPER.writeValueAsString(notebook));
+      Notebook notebook = NOTEBOOK_DAO.findById(id);
+      resp.getWriter().write(MAPPER.writeValueAsString(notebook));
     }
 }

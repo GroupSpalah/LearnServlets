@@ -1,12 +1,10 @@
-package org.homeworks.anton.hw_15_05.hw_05_06_24;
+package org.homeworks.anton.hw_16_06_24.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -16,9 +14,15 @@ import lombok.experimental.FieldDefaults;
 @Getter
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @ToString
-public class Notebook {
+public class Driver {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
+
     String name;
+    String lastName;
+    int age;
+    Qualification qualification;
+    @OneToMany(cascade = CascadeType.PERSIST)
+    List<Truck> trucks;
 }

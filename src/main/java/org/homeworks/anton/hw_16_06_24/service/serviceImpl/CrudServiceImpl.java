@@ -22,13 +22,12 @@ dao.update(driver);
     }
 
     @Override
-    public void delete(Driver driver) throws SQLException {
-dao.delete(driver);
+    public void deleteById(int id) throws SQLException {
+dao.deleteById(id);
     }
 
     @Override
-    public Driver find(int id) throws SQLException {
-dao.find(id);
-        return null;
+    public void find(int id) throws SQLException {
+           dao.find(id);
     }
 }

@@ -29,13 +29,14 @@ dao.update(truck);
     }
 
     @Override
-    public void delete(Truck truck) throws SQLException {
-dao.delete(truck);
+    public void deleteById(int id) throws SQLException {
+        dao.deleteById(id);
     }
 
+
     @Override
-    public Driver find(int id) throws SQLException {
+    public void find(int id) throws SQLException {
 dao.find(id);
-        return null;
+
     }
 }

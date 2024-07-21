@@ -20,6 +20,5 @@ public class Truck {
     int id;
 
     String model;
-    String date;
-
+    int date;
 }

@@ -17,6 +17,7 @@ public class TruckDaoImpl implements TruckDao {
 
     public static final EntityManagerFactory FACTORY =
             createEntityManagerFactory("anton");
+
     @Override
     public List<Truck> showByDriver(int id) throws SQLException {
         EntityManager em = FACTORY.createEntityManager();

@@ -20,21 +20,20 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/driver")
 public class DriverServlet extends HttpServlet {
     private static final ObjectMapper MAPPER = new ObjectMapper();
-    TruckService service = new  TruckServiceImpl();
-    CrudService<Driver> driverService =  new CrudServiceImpl() ;
+    TruckService service = new TruckServiceImpl();
+    CrudService<Driver> driverService = new CrudServiceImpl();
 
- @SneakyThrows
- @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException{
+    @SneakyThrows
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         BufferedReader reader = req.getReader();
-         Driver driver = MAPPER.readValue(reader, Driver.class);
+        Driver driver = MAPPER.readValue(reader, Driver.class);
         driverService.add(driver);
-
     }
 
     @SneakyThrows
     @Override
-    protected  void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String sId = req.getParameter("id");
         int id = Integer.parseInt(sId);
         Driver driver = driverService.find(id);
@@ -45,7 +44,7 @@ public class DriverServlet extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String sId = req.getParameter("id");
-     int id = Integer.parseInt(sId);
-    driverService.deleteById(id);
- }
+        int id = Integer.parseInt(sId);
+        driverService.deleteById(id);
+    }
 }

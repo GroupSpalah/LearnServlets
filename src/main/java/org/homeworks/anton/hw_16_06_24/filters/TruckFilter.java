@@ -27,7 +27,7 @@ public class TruckFilter implements Filter {
 
         Truck truck = mapper.readValue(reader, Truck.class);
 
-        if (truck.getDate() < 2022) {
+        if (truck.getDate() < 2010) {
             response.getWriter().println("Incorrect date");
             response.setStatus(403);
         } else {

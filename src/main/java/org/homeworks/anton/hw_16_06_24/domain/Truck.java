@@ -18,7 +18,6 @@ public class Truck {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-
     String model;
     int date;
 }

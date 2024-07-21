@@ -4,7 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Query;
-import org.homeworks.anton.hw_15_05.hw_05_06_24.Notebook;
+import lombok.Cleanup;
 import org.homeworks.anton.hw_16_06_24.dao.TruckDao;
 import org.homeworks.anton.hw_16_06_24.domain.Truck;
 
@@ -16,17 +16,16 @@ import static jakarta.persistence.Persistence.createEntityManagerFactory;
 public class TruckDaoImpl implements TruckDao {
 
     public static final EntityManagerFactory FACTORY =
-            createEntityManagerFactory("antonio");
+            createEntityManagerFactory("anton");
     @Override
-    public List<Truck> showByDriver(String name) throws SQLException {
+    public List<Truck> showByDriver(int id) throws SQLException {
         EntityManager em = FACTORY.createEntityManager();
-        List<Truck> trucks = em.createQuery(
-                        "FROM Truck t JOIN Driver  d WHERE d.name LIKE :name",
-                        Truck.class)
-                .setParameter("name", "%" + name + "%")
+        List<Truck> trucks = em.createQuery("SELECT t FROM Truck t WHERE t.driver.id = :driverId ", Truck.class)
+                .setParameter("driverId", id)
                 .getResultList();
         em.close();
         return trucks;
+
     }
 
     @Override
@@ -34,8 +33,9 @@ public class TruckDaoImpl implements TruckDao {
         EntityManager em = FACTORY.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
-        em.persist(truck);
+        em.merge(truck);
         transaction.commit();
+        em.close();
     }
 
     @Override
@@ -53,22 +53,21 @@ public class TruckDaoImpl implements TruckDao {
         EntityManager em = FACTORY.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
-        Query query = em.createQuery("DELETE FROM Truck t WHERE t.id =: t_id");
-        query.setParameter("t_id", id);
-        query.executeUpdate();
+        Truck truck = em.find(Truck.class, id);
+        em.remove(truck);
         transaction.commit();
         em.close();
     }
 
 
     @Override
-    public void find(int id) {
+    public Truck find(int id) {
         EntityManager em = FACTORY.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
         Truck truck = em.find(Truck.class, id);
-        System.out.println(truck);
         transaction.commit();
         em.close();
+        return truck;
     }
 }

@@ -28,6 +28,6 @@ public class Driver {
     @Enumerated(EnumType.STRING)
     Qualification qualification;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
+    @OneToMany(cascade = CascadeType.MERGE)
     List<Truck> trucks;
 }

@@ -3,22 +3,22 @@ package org.homeworks.anton.hw_16_06_24.dao.impl;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.Query;
 import org.homeworks.anton.hw_16_06_24.dao.CrudDao;
 import org.homeworks.anton.hw_16_06_24.domain.Driver;
-import org.homeworks.anton.hw_16_06_24.domain.Truck;
+
+
 
 import static jakarta.persistence.Persistence.createEntityManagerFactory;
 
 public class DriverDaoImpl implements CrudDao<Driver> {
     public static final EntityManagerFactory FACTORY =
-            createEntityManagerFactory("antonio");
+            createEntityManagerFactory("anton");
     @Override
     public void add(Driver driver) {
         EntityManager em = FACTORY.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
-        em.persist(driver);
+        em.merge(driver);
         transaction.commit();
     }
 
@@ -37,9 +37,8 @@ public class DriverDaoImpl implements CrudDao<Driver> {
         EntityManager em = FACTORY.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
-        Query query = em.createQuery("DELETE FROM Driver d WHERE d.id =: d_id");
-        query.setParameter("d_id", id);
-        query.executeUpdate();
+        Driver driver = em.find(Driver.class, id);
+        em.remove(driver);
         transaction.commit();
         em.close();
     }
@@ -47,7 +46,7 @@ public class DriverDaoImpl implements CrudDao<Driver> {
 
 
     @Override
-    public void find(int id) {
+    public Driver find(int id) {
         EntityManager em = FACTORY.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
@@ -55,5 +54,6 @@ public class DriverDaoImpl implements CrudDao<Driver> {
         System.out.println(driver);
         transaction.commit();
         em.close();
+        return driver;
     }
 }

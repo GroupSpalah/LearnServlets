@@ -1,13 +1,10 @@
 package org.homeworks.anton.hw_16_06_24.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import java.time.LocalDate;
+
 
 @Entity
 @AllArgsConstructor
@@ -23,5 +20,6 @@ public class Truck {
     int id;
 
     String model;
-    LocalDate date;
+    String date;
+
 }

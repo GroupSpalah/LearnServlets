@@ -15,7 +15,7 @@ public class NotebookDAO {
         EntityManager em = FACTORY.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
-        em.persist(notebook);
+        em.merge(notebook);
         transaction.commit();
     }
 

@@ -25,49 +25,48 @@ public class TruckDaoImpl implements TruckDao {
                 .getResultList();
         em.close();
         return trucks;
-
     }
 
     @Override
     public void add(Truck truck) {
+        @Cleanup
         EntityManager em = FACTORY.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
         em.merge(truck);
         transaction.commit();
-        em.close();
     }
 
     @Override
     public void update(Truck truck) {
+        @Cleanup
         EntityManager em = FACTORY.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
         em.merge(truck);
         transaction.commit();
-        em.close();
     }
 
     @Override
     public void deleteById(int id) {
+        @Cleanup
         EntityManager em = FACTORY.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
         Truck truck = em.find(Truck.class, id);
         em.remove(truck);
         transaction.commit();
-        em.close();
     }
 
 
     @Override
     public Truck find(int id) {
+        @Cleanup
         EntityManager em = FACTORY.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
         Truck truck = em.find(Truck.class, id);
         transaction.commit();
-        em.close();
         return truck;
     }
 }

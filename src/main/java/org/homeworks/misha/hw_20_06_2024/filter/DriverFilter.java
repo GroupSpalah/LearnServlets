@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
 
-@WebFilter(urlPatterns = "/driver/*")
+@WebFilter(urlPatterns = "/driver/m/*")
 public class DriverFilter extends HttpFilter {
 
     @Override
